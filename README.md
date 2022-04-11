@@ -1,2 +1,2 @@
 # 2Eat
-2Eat Canteen System that Optimise the pre-ordering process 
+2Eat Canteen System that Optimises the Pre-Ordering Process 
