@@ -4,7 +4,7 @@
 
 <?php echo validation_errors(); ?>
 
-<?php echo form_open_multipart('users/register'); ?>
+<?php echo form_open_multipart('users/add_user'); ?>
 <div class="row">
 	<div class="col-md-6">
 
@@ -24,19 +24,12 @@
 				<?php endforeach; ?>
 			</div>
 		</div>
-		<div class="form-group">
-			<label>Zipcode</label>
-			<input type="text" class="form-control" name="zipcode" placeholder="Zipcode">
-		</div>
+
 	</div>
 	<div class="col-md-6">
 		<div class="form-group">
-			<label>Username</label>
-			<input type="text" class="form-control" name="username" placeholder="Username">
-		</div>
-		<div class="form-group">
-			<label>Email</label>
-			<input type="email" class="form-control" name="email" placeholder="Email">
+			<label>Student number</label>
+			<input type="text" class="form-control" name="student_number" placeholder="Student Number">
 		</div>
 		<div class="form-group">
 			<label>Password</label>

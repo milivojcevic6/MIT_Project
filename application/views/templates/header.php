@@ -2,7 +2,7 @@
         <head>
 
 			<meta name="viewport" content="width=device-width, initial-scale=1">
-			<title>Restaurant review</title>
+			<title>2Eat</title>
 			<link rel = "stylesheet" type = "text/css" href = "<?php echo base_url(); ?>edit/css/bootstrap.min.css">
 			<link rel = "stylesheet" type = "text/css" href = "<?php echo base_url(); ?>edit/css/bootstrap.min.css.map">
 			<link rel = "stylesheet" type = "text/css" href = "<?php echo base_url(); ?>edit/css/bootstrap-grid.css.map">
@@ -34,7 +34,7 @@
 				</button>
 				<div class="navbar-collapse collapse d-sm-inline-flex justify-content-end" id="navbarResponsive">
 					<ul class="navbar-nav flex-grow p-0">
-						<li class="nav-item">
+						<!--<li class="nav-item">
 							<a class="nav-link text-dark" href="<?php echo base_url(); ?>">Home</a>
 						</li>
 							<li class="nav-item">
@@ -48,11 +48,8 @@
 						</li>
 						<li class="nav-item">
 							<a class="nav-link text-dark" href="<?php echo base_url(); ?>help">Help</a>
-						</li>
+						</li>-->
 						<?php if(!$this->session->userdata('logged_in')): ?>
-							<li class="nav-item">
-								<a class="nav-link text-dark" href="<?php echo base_url(); ?>users/register">Register</a>
-							</li>
 							<li class="nav-item">
 								<a class="nav-link text-dark" href="<?php echo base_url(); ?>users/login">Log in</a>
 							</li>

@@ -16,9 +16,9 @@
 				<h5>Useful links</h5>
 				<hr class="light">
 				<p><a href="<?php echo base_url(); ?>">Home</a></p>
-				<p><a href="<?php echo base_url(); ?>restaurants">Get started</a></p>
-				<p><a href="<?php echo base_url(); ?>help">Help</a></p>
-				<p><a href="<?php echo base_url(); ?>about">About</a></p>
+				<p><a href="<?php echo base_url(); ?>">Daily menus</a></p>
+				<p><a href="<?php echo base_url(); ?>">Notifications</a></p>
+				<p><a href="<?php echo base_url(); ?>">My balance</a></p>
 			</div>
 			<div class="col-md-4">
 				<img src="<?php echo base_url(); ?>/images/2Eat3.png" width="200">
