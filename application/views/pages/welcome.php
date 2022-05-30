@@ -1,7 +1,7 @@
 <div class="container-fluid padding padding2">
 	<div class="row text-center padding">
 		<div class="col-6">
-			<button class="btn btn-secondary col-12 mb-2">Daily menus</button>
+			<a href="<?php echo base_url(); ?>menus"><button class="btn btn-secondary col-12 mb-2">Daily menus</button></a>
 			<button class="btn btn-secondary col-12 mb-2">Order preview</button>
 			<button class="btn btn-secondary col-12 mb-2">Notifications</button>
 			<button class="btn btn-secondary col-12 mb-2">My balance</button>

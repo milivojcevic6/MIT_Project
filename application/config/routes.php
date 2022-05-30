@@ -49,25 +49,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['restaurants/create']='restaurants/create';
+//$route['restaurants/create']='restaurants/create';
+$route['menus/create']='menus/create';
+$route['menus/create_order']='menus/create_order';
+
+//$route['restaurants/add_member/(:any)']='restaurants/add_member/$1';
+
+//$route['restaurants/ratings/(:any)']='restaurants/ratings/$1';
+
+//$route['restaurants/update']='restaurants/update';
+
+//$route['comments/(:any)']='comments/create/$1';
 
 
-
-$route['restaurants/add_member/(:any)']='restaurants/add_member/$1';
-
-$route['restaurants/ratings/(:any)']='restaurants/ratings/$1';
-
-$route['restaurants/update']='restaurants/update';
-
-$route['comments/(:any)']='comments/create/$1';
-
-
-$route['restaurants/(:any)']='restaurants/view/$1';
+//$route['restaurants/(:any)']='restaurants/view/$1';
 //$route['restaurants/view/'] = 'restaurants';
 //$route['restaurants']='restaurants/index';
+$route['menus/(:any)']='menus/customize/$1';
+
 $route['menus']='menus/index';
 
 $route['default_controller'] = 'pages/view';
-$route['(:any)']='pages/view/$1';
+$route['(:any)']='menus/customize/$1';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

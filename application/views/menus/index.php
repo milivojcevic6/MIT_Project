@@ -1,18 +1,25 @@
 <div class="container-fluid padding padding2">
 	<div class="row text-center padding">
 		<div class="col-4">
-			<label for="start">Date:</label>
 
-			<input type="date" id="start" name="trip-start"
-				   value="2018-07-22"
-				   min="2022-01-01" max="2022-12-31">
+			<?php echo form_open_multipart('menus'); ?>
+			<div class="form-group">
+				<label for="date">Date:</label>
+				<input type="date" id="date" name="date"
+					   value="2022-01-31"
+					   min="2022-01-01" max="2022-12-31">
+			</div>
+			<button type="submit" class="btn btn-primary w-100">Filter by date</button>
+			</form>
+
+			<a href="<?php echo base_url(); ?>menus" class="btn btn-secondary d-flex justify-content-center mt-3 ">Clear fliter</a>
 			<br>
-			<label for="appt">Choose a time for your meeting:</label>
+			<!--<label for="appt">Choose a time for your meeting:</label>
 
 			<input type="time" id="appt" name="appt"
 				   min="09:00" max="18:00" required>
 			<br>
-			<!--<button class="btn btn-primary my-4">Show menus</button>-->
+			<button class="btn btn-primary my-4">Show menus</button>-->
 			<a class="btn btn-secondary d-flex justify-content-center my-3 " href="<?php echo base_url(); ?>menus/create">Add menu</a>
 
 
@@ -24,6 +31,8 @@
 					<th scope="col">#</th>
 					<th scope="col">Menu name</th>
 					<th scope="col">price</th>
+					<th scope="col">Delete</th>
+					<th scope="col">Customize</th>
 				</tr>
 				</thead>
 				<tbody>
@@ -32,6 +41,20 @@
 						<td><?php echo $menu['id'] ?></td>
 						<td><?php echo $menu['name']; ?></td>
 						<td><?php echo $menu['price']; ?></td>
+						<td>
+							<?php echo form_open('menus/delete/'.$menu['id'], array(
+									'class' => 'mb-0 mr-2'
+							)); ?>
+							<input type="submit" value="Delete" class="btn btn-danger">
+							</form>
+						</td>
+						<td>
+							<?php echo form_open_multipart('menus/customize/'.$menu['id'], array(
+									'class' => 'mb-0 mr-2'
+							)); ?>
+							<input type="submit" value="Customize" class="btn btn-success">
+							</form>
+						</td>
 					</tr>
 				<?php endforeach; ?>
 				</tbody>
