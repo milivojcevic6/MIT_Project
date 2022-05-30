@@ -68,6 +68,7 @@ $route['menus/create_order']='menus/create_order';
 $route['menus/(:any)']='menus/customize/$1';
 
 $route['menus']='menus/index';
+$route['orders']='orders/index';
 
 $route['default_controller'] = 'pages/view';
 $route['(:any)']='menus/customize/$1';

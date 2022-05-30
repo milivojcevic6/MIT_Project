@@ -81,6 +81,7 @@ class Menus extends CI_Controller
 			show_404();
 		}
 
+		$data['title'] = 'Menus';
 		$data['menus'] = $this->menu_model->get_filtered_menus();
 
 		$this->load->view('templates/header', $data);
@@ -96,7 +97,7 @@ class Menus extends CI_Controller
 		if(empty($data['menu'])){
 			show_404();
 		}
-
+		$data['title'] = 'Customize menu';
 		$data['menu_name'] = $data['menu']['name'];
 		$data['menu_date'] = $data['menu']['day'];
 		$data['menu_id'] = $menu_id;
@@ -108,10 +109,7 @@ class Menus extends CI_Controller
 
 	}
 
-	public function create_order(){
-		$this->menu_model->create_order();
-		redirect('menus');
-	}
+
 
 
 }

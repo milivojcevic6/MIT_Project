@@ -49,7 +49,7 @@ class Users extends CI_Controller{
 				);
 				$this->session->set_userdata($user_data);
 				$this->session->set_flashdata('user_logged', 'You are now loged in. Welcome back!');
-				redirect('welcome');
+				redirect('');
 			}
 			else{
 				$this->session->set_flashdata('login_failed', 'There was a mistake in your input. Try logging in again.');

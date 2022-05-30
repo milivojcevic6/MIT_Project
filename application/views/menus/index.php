@@ -20,8 +20,9 @@
 				   min="09:00" max="18:00" required>
 			<br>
 			<button class="btn btn-primary my-4">Show menus</button>-->
+			<?php if($this->session->userdata('role_id')==1) : ?>
 			<a class="btn btn-secondary d-flex justify-content-center my-3 " href="<?php echo base_url(); ?>menus/create">Add menu</a>
-
+			<?php endif; ?>
 
 		</div>
 		<div class="col-6">
@@ -31,7 +32,9 @@
 					<th scope="col">#</th>
 					<th scope="col">Menu name</th>
 					<th scope="col">price</th>
+					<?php if($this->session->userdata('role_id')==1) : ?>
 					<th scope="col">Delete</th>
+					<?php endif; ?>
 					<th scope="col">Customize</th>
 				</tr>
 				</thead>
@@ -41,6 +44,7 @@
 						<td><?php echo $menu['id'] ?></td>
 						<td><?php echo $menu['name']; ?></td>
 						<td><?php echo $menu['price']; ?></td>
+						<?php if($this->session->userdata('role_id')==1) : ?>
 						<td>
 							<?php echo form_open('menus/delete/'.$menu['id'], array(
 									'class' => 'mb-0 mr-2'
@@ -48,6 +52,7 @@
 							<input type="submit" value="Delete" class="btn btn-danger">
 							</form>
 						</td>
+						<?php endif; ?>
 						<td>
 							<?php echo form_open_multipart('menus/customize/'.$menu['id'], array(
 									'class' => 'mb-0 mr-2'

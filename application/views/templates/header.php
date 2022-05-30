@@ -28,6 +28,7 @@
 		<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3 py-1">
 			<div class="container">
 				<a class="navbar-brand" href="<?php echo base_url(); ?>" ><img src="<?php echo base_url(); ?>images/2Eat.png" width="150px" ></a>
+				<?= $title;?>
 				<!--<img src="<?php echo base_url(); ?>/images/name1.png">-->
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
 					<span class="navbar-toggler-icon"></span>
@@ -55,8 +56,9 @@
 							</li>
 						<?php endif;?>
 						<?php if($this->session->userdata('logged_in')): ?>
-							<li class="nav-item">
-								<a class="nav-link text-dark" href="<?php echo base_url(); ?>users/logout">Log out</a>
+							<li class="nav-item d-inline">
+								<?php echo($this->session->userdata('student_number')); ?>
+								<a class="nav-link text-dark d-inline" href="<?php echo base_url(); ?>users/logout">Log out</a>
 							</li>
 						<?php endif;?>
 					</ul>

@@ -3,7 +3,7 @@
 <h3>Menu name: <?= $menu_name;?>  Menu date: <?= $menu_date;?> </h3>
 
 
-<?php echo form_open_multipart('menus/create_order'); ?>
+<?php echo form_open_multipart('orders/create'); ?>
 
 <div class="form-group">
 	<input type="hidden" class="form-control" id="menu_id" name="menu_id" value="<?php echo $menu_id ?>" aria-describedby="menu_id" >
