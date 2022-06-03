@@ -17,6 +17,21 @@ class Order_model extends CI_Model
 		return $query->row_array();
 	}
 
+	public function get_notification_orders(){
+		$orders = $this->get_orders();
+		$today = date_create();
+		$today_date = date_format($today,"Y-m-d");
+		$deadline = date('Y-m-d', mktime(0, 0, 0, date('m'), date('d') + 2, date('Y')));
+		$query = array();
+		foreach ($orders as $order){
+			if ($deadline== $order['date']){
+				array_push($query, $order);
+			}
+		}
+		return $query;
+
+	}
+
 	public function create_order(){
 		//if($this->session->userdata('role_id')==1)
 		$user_id = $this->session->userdata('user_id');

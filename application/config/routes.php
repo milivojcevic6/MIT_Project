@@ -70,6 +70,8 @@ $route['menus/(:any)']='menus/customize/$1';
 $route['menus']='menus/index';
 $route['orders']='orders/index';
 
+$route['orders/notifications']='orders/notifications';
+
 $route['default_controller'] = 'pages/view';
 $route['(:any)']='menus/customize/$1';
 $route['404_override'] = '';
