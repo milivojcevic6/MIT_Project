@@ -56,24 +56,72 @@ class User_model extends CI_Model
 	{
 		$query = $this->db->get_where('users', array('email' => $email));
 		return empty($query->row_array()) ? true : false;
-	}*/
-
-	public function get_user_comment($id)
-	{
-		$result = $this->db->get_where('users', array('id' => $id));
-		print_r($result);
-		return $result['name'];
-
 	}
 
 	public function get_user($id)
+	{
+		$result = $this->db->get_where('users',array('id' => $id));
+		print_r($result);
+		return $result['balance'];
+
+	}*/
+
+	public function get_user_balance($id)
 	{
 		$this->db->where('id', $id);
 
 		$result = $this->db->get('users');
 
 		if ($result->num_rows() == 1) {
-			return $result->row(0)->name . ' ' . $result->row(0)->surname;
+			return $result->row(0)->balance;
 		} else return "";
 	}
+
+	public function get_user_studentnum($id)
+	{
+		$this->db->where('id', $id);
+
+		$result = $this->db->get('users');
+
+		if ($result->num_rows() == 1) {
+			return $result->row(0)->student_number;
+		} else return "";
+	}
+
+	public function get_user_balance_of($student_number=null)
+	{
+		if ($student_number==null) $student_number = $this->input->post('student_number');
+
+		$this->db->where('student_number', $student_number);
+
+		$result = $this->db->get('users');
+
+		if ($result->num_rows() == 1) {
+			return $result->row(0)->balance;
+		} else return "";
+	}
+
+	public function get_user_studentnum_of($student_number=null)
+	{
+		if ($student_number==null) $student_number = $this->input->post('student_number');
+		$this->db->where('student_number', $student_number);
+
+		$result = $this->db->get('users');
+
+		if ($result->num_rows() == 1) {
+			return $result->row(0)->student_number;
+		} else return "";
+	}
+
+	public function update_balance($student_num){
+		//echo $this->input->post('id'); die();
+		$current = $this->get_user_balance_of($student_num);
+		$data = array(
+			'balance' => $current + $this->input->post('balance')
+		);
+		$this->db->where('student_number', $student_num);
+		return $this->db->update('users', $data);
+	}
+
+
 }

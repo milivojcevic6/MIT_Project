@@ -73,6 +73,47 @@ class Users extends CI_Controller{
 		return $this->user_model->check_username_exists($username) ? true : false;
 	}
 
+	public function balance($student_number=null){
+		if($this->session->userdata('role_id')==3){
+			$data['user_balance'] = $this->user_model->get_user_balance($this->session->userdata('user_id'));
+			$data['user_studentnum'] = $this->user_model->get_user_studentnum($this->session->userdata('user_id'));
+		}
+		else if($student_number==null){
+			$data['user_balance'] = $this->user_model->get_user_balance_of();
+			$data['user_studentnum'] = $this->user_model->get_user_studentnum_of();
+		}
+		else{
+			$data['user_balance'] = $this->user_model->get_user_balance_of($student_number);
+			$data['user_studentnum'] = $this->user_model->get_user_studentnum_of($student_number);
+		}
+
+		$data['title'] = 'Balance';
+		$this->load->view('templates/header', $data);
+		$this->load->view('users/balance', $data);
+		$this->load->view('templates/footer', $data);
+	}
+
+	/*public function balance_of($student_number=null){
+		if($student_number==null){
+			$data['user_balance'] = $this->user_model->get_user_balance_of();
+			$data['user_studentnum'] = $this->user_model->get_user_studentnum_of();
+		}
+		else{
+			$data['user_balance'] = $this->user_model->get_user_balance_of($student_number);
+			$data['user_studentnum'] = $this->user_model->get_user_studentnum_of($student_number);
+		}
+
+		$data['title'] = 'Balance';
+		$this->load->view('templates/header', $data);
+		$this->load->view('users/balance', $data);
+		$this->load->view('templates/footer', $data);
+	}*/
+
+	public function top_up($student_num){
+		$this->user_model->update_balance($student_num);
+		redirect('users/balance/'.$student_num);
+	}
+
 	/*public function check_email_exists($email){
 		$this->form_validation->set_message('logged_out', 'That username is taken. Try again.');
 		return $this->user_model->check_email_exists($email) ? true : false;
