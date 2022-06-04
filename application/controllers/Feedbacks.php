@@ -7,7 +7,13 @@ class Feedbacks extends CI_Controller
 		$data['title'] = 'Feedback';
 
 		$this->load->view('templates/header', $data);
-		$this->load->view('feedbacks/index', $data);
+
+		if($this->session->userdata('role_id')==3):
+			$this->load->view('feedbacks/index', $data);
+		else:
+			$this->load->view('feedbacks/manager', $data);
+		endif;
+
 		$this->load->view('templates/footer', $data);
 	}
 }
