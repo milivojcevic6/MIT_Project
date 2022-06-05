@@ -2,6 +2,7 @@
 
 class Users extends CI_Controller{
 	public function add_user(){
+		if(!$this->session->userdata('logged_in')) redirect('users/login');
 		$data['title'] = 'Add user';
 		$data['roles'] = $this->user_model->get_roles();
 		$this->form_validation->set_rules('name', 'Name', 'required');
@@ -74,6 +75,7 @@ class Users extends CI_Controller{
 	}
 
 	public function balance($student_number=null){
+		if(!$this->session->userdata('logged_in')) redirect('users/login');
 		if($this->session->userdata('role_id')==3){
 			$data['user_balance'] = $this->user_model->get_user_balance($this->session->userdata('user_id'));
 			$data['user_studentnum'] = $this->user_model->get_user_studentnum($this->session->userdata('user_id'));
@@ -110,6 +112,7 @@ class Users extends CI_Controller{
 	}*/
 
 	public function top_up($student_num){
+		if(!$this->session->userdata('logged_in')) redirect('users/login');
 		$this->user_model->update_balance($student_num);
 		redirect('users/balance/'.$student_num);
 	}

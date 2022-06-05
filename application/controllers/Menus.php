@@ -3,6 +3,8 @@ class Menus extends CI_Controller
 {
 	public function index()
 	{
+		if(!$this->session->userdata('logged_in')) redirect('users/login');
+
 		$data['title'] = 'Menus';
 
 		if($this->menu_model->get_filtered_menus()) $data['menus'] = $this->menu_model->get_filtered_menus();
@@ -19,6 +21,7 @@ class Menus extends CI_Controller
 
 	public function view($slug = NULL)
 	{
+		if(!$this->session->userdata('logged_in')) redirect('users/login');
 		if (empty($data['menus'])) {
 			show_404();
 		}
@@ -31,6 +34,7 @@ class Menus extends CI_Controller
 	}
 
 	public function create(){
+		if(!$this->session->userdata('logged_in')) redirect('users/login');
 		//if(!$this->session->userdata('logged_in')) redirect('users/login');
 
 		$data['title'] = 'Add new menu';
@@ -72,11 +76,13 @@ class Menus extends CI_Controller
 	}
 
 	public function delete($id){
+		if(!$this->session->userdata('logged_in')) redirect('users/login');
 		$this->menu_model->delete_menu($id);
 		redirect('menus');
 	}
 
 	public function filter(){
+		if(!$this->session->userdata('logged_in')) redirect('users/login');
 		if (empty($data['menus'])) {
 			show_404();
 		}
@@ -90,6 +96,7 @@ class Menus extends CI_Controller
 	}
 
 	public function customize($menu_id){
+		if(!$this->session->userdata('logged_in')) redirect('users/login');
 		$data['menu'] = $this->menu_model->get_menus($menu_id);
 		$data['drinks'] = $this->customize_model->get_drinks();
 		$data['sizes'] = $this->customize_model->get_sizes();

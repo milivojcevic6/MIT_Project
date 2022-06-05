@@ -1,5 +1,5 @@
 </div>
-<footer >
+<footer class="">
 	<div class="container padding">
 		<div class="row text-center">
 			<div class="col-md-4">

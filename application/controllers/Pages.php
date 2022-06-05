@@ -3,6 +3,7 @@ class Pages extends CI_Controller {
 
 	public function view($page = 'welcome')
 	{
+		if(!$this->session->userdata('logged_in')) redirect('users/login');
 		if ( ! file_exists(APPPATH.'views/pages/'.$page.'.php'))
 		{
 			// Whoops, we don't have a page for that!

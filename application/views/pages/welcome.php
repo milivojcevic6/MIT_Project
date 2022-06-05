@@ -27,8 +27,8 @@
 			<?php if($this->session->userdata('role_id')==1) : ?><a href="<?php echo base_url(); ?>users/add_user"><button class="btn btn-secondary col-12 mb-2">Add student</button></a><?php endif; ?>
 		</div>
 		<div class="col-6">
-			<img src="<?php echo base_url(); ?>images/emoji.png" width="50%">
-			<h3>Welcome </h3><?php echo($this->session->userdata('name')); ?>
+			<img src="<?php echo base_url(); ?>images/hello.png" width="50%">
+			<h3>Welcome </h3><?php echo($this->session->userdata('student_number')); ?>
 		</div>
 	</div>
 </div>

@@ -70,6 +70,7 @@ $route['menus/(:any)']='menus/customize/$1';
 $route['menus']='menus/index';
 $route['orders']='orders/index';
 $route['feedback']='feedbacks/index';
+$route['feedback/manager']='feedbacks/manager';
 
 $route['orders/notifications']='orders/notifications';
 $route['users/balance']='users/balance';
