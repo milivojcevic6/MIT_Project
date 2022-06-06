@@ -22,6 +22,7 @@ class Users extends CI_Controller{
 			//Encrypt password
 			$enc_password = md5($this->input->post('password'));
 			$this->user_model->add_user($enc_password);
+			redirect('/');
 			//$this->session->set_flashdata('user_registered', 'You are now registered and can log in');
 			//redirect('welcome');
 		}

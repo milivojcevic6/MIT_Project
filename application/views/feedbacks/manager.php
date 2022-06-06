@@ -32,7 +32,7 @@
 		</li>
 	<?php endforeach; ?>
 </ul>
-<div class="tab-content" id="myTabContent">
+<div class="tab-content mb-5" id="myTabContent">
 	<?php foreach ($types as $type): ?>
 	<div class="tab-pane fade show <?php if($type['id']==1): ?>active<?php endif;?>" id="<?php echo $type['id'] ?>" role="tabpanel" aria-labelledby="<?php echo $type['id'] ?>-tab">
 		<table class="table table-hover mt-2">

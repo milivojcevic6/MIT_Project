@@ -1,6 +1,6 @@
 <div class="container-fluid padding padding2">
 	<div class="row text-center padding">
-		<div class="col-4">
+		<div class="col-sm-12 col-lg-4">
 
 			<?php echo form_open_multipart('menus'); ?>
 			<div class="form-group">
@@ -25,7 +25,7 @@
 			<?php endif; ?>
 
 		</div>
-		<div class="col-8">
+		<div class="col-sm-12 col-lg-8" style="height: 500px; overflow: scroll;">
 			<table class="table table-hover">
 				<thead>
 				<tr>

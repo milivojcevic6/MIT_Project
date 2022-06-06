@@ -60,7 +60,7 @@ $autoload['packages'] = array();
 */
 //$autoload['libraries'] = array();
 
-$autoload['libraries'] = array('database', 'form_validation', 'session'); // add database in array
+$autoload['libraries'] = array('database', 'form_validation', 'session', 'upload'); // add database in array
 /*
 | -------------------------------------------------------------------
 |  Auto-load Drivers

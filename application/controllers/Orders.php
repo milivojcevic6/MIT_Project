@@ -48,4 +48,51 @@ class Orders extends CI_Controller
 		$this->load->view('templates/footer', $data);
 	}
 
+	public function statistics()
+	{
+		if(!$this->session->userdata('logged_in')) redirect('users/login');
+
+		$data['title'] = 'Statistics';
+
+		if($this->order_model->get_filtered_orders()) $data['orders'] = $this->order_model->get_filtered_orders();
+		else $data['orders'] = $this->order_model->get_orders();
+
+		//print_r($data['orders']);
+
+		$menus = $this->menu_model->get_menus();
+		$drinks = $this->customize_model->get_drinks();
+
+		$menu_types=array();
+		$drink_types=array();
+		$cntSoups=0;
+		$cntSalads=0;
+		$cntFruits=0;
+
+		foreach ($data['orders'] as $order){
+			foreach ($menus as $menu) {
+				if($menu['id']==$order['menu_id']){
+					array_push($menu_types, $menu['name']);
+				}
+			}
+			foreach ($drinks as $drink){
+				if($drink['id']==$order['drink_id']){
+					array_push($drink_types, $drink['name']);
+				}
+			}
+			if($order['soup']==1) $cntSoups++;
+			if($order['salad']==1) $cntSalads++;
+			if($order['fruit']==1) $cntFruits++;
+		}
+
+		$data['counted_menus'] = array_count_values($menu_types);
+		$data['counted_drinks'] = array_count_values($drink_types);
+		$data['cntSalads'] = $cntSalads;
+		$data['cntSoups'] = $cntSoups;
+		$data['cntFruits'] = $cntFruits;
+		$this->load->view('templates/header', $data);
+		$this->load->view('orders/statistics', $data);
+		$this->load->view('templates/footer', $data);
+	}
+
+
 }

@@ -2,7 +2,7 @@
 
 <div class="row">
 	<?php if($this->session->userdata('role_id')==3) : ?>
-	<div class="col-5">
+	<div class="col-sm-12 col-lg-5">
 		<div class="card h-100">
 
 			<h5 class="card-header">My Balance</h5>
@@ -22,7 +22,7 @@
 		</div>
 	</div>
 	<? else: ?>
-		<div class="col-5" >
+		<div class="col-sm-12 col-lg-5" >
 			<div class="card h-100">
 
 				<h5 class="card-header">Find student's balance</h5>
@@ -53,7 +53,7 @@
 			</div>
 		</div>
 	<? endif; ?>
-	<div class="col-7">
+	<div class="col-sm-12 col-lg-7">
 		<div class="card h-100">
 			<h5 class="card-header">Top up account</h5>
 			<div class="card-body">

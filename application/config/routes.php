@@ -69,6 +69,8 @@ $route['menus/(:any)']='menus/customize/$1';
 
 $route['menus']='menus/index';
 $route['orders']='orders/index';
+$route['orders/statistics']='orders/statistics'
+;
 $route['feedback']='feedbacks/index';
 $route['feedback/manager']='feedbacks/manager';
 

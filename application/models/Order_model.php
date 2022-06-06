@@ -64,4 +64,15 @@ class Order_model extends CI_Model
 		return true;
 	}
 
+	public function get_filtered_orders(){
+		$date = $this->input->post('date');
+		$query=$this->db->get_where('orders', array('date'=> $date));
+		//print_r($query->result_array());
+		return $query->result_array();
+	}
+
+	public function get_orders_by_menu($menu_id){
+		$query = $this->db->get_where('orders', array('menu_id' => $menu_id));
+		return $query->result_array();
+	}
 }

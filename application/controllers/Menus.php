@@ -52,7 +52,7 @@ class Menus extends CI_Controller
 			$this->load->view('templates/footer', $data);
 		} else{
 			//Upload image
-			$config['upload_path'] = './restaurant_images';
+			$config['upload_path'] = './2eat_images';
 			$config['allowed_types'] = 'gif|jpg|png';
 			$config['max_size'] = '2048';
 			$config['max_width'] = '2000';

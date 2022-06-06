@@ -1,7 +1,14 @@
 
+<div class="d-flex">
+	<div class="d-flex float-left justify-content-center align-items-center">
+		<div>
+			<h3>Menu name: <?= $menu_name;?>  </h3>
+			<h3>Menu date: <?= $menu_date;?> </h3>
+		</div>
 
-<h3>Menu name: <?= $menu_name;?>  Menu date: <?= $menu_date;?> </h3>
-
+	</div>
+<img src="<?php echo base_url(); ?>2eat_images/noimage.jpg" width="200px" class="d-flex float-right mx-3">
+</div>
 
 <?php echo form_open_multipart('orders/create'); ?>
 
